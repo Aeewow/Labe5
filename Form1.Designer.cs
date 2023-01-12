@@ -54,6 +54,8 @@
             this.pbMain.Size = new System.Drawing.Size(829, 666);
             this.pbMain.TabIndex = 3;
             this.pbMain.TabStop = false;
+            this.pbMain.Click += new System.EventHandler(this.pbMain_Click);
+            this.pbMain.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pbMain_MouseClick);
             // 
             // Score_Label
             // 
@@ -70,6 +72,7 @@
             // 
             this.timer1.Enabled = true;
             this.timer1.Interval = 30;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Form1
             // 
