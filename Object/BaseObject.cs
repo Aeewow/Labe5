@@ -8,7 +8,7 @@ using System.Drawing.Drawing2D;
 
 namespace Labe5.Object
 {
-    internal class BaseObject
+    public class BaseObject
     {
         public Action<BaseObject, BaseObject> OnOverlap;
 

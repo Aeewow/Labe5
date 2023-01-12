@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Labe5.Object
 {
-    internal class Marker : BaseObject
+    public class Marker : BaseObject
     {
         public Marker(float x, float y, float angle) : base(x, y, angle)
         {

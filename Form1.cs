@@ -1,3 +1,12 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 using Labe5.Object;
 
 namespace Labe5
@@ -11,6 +20,7 @@ namespace Labe5
         Dot? dot2;
         ushort score = 0;
         Random random = new Random();
+
         public Form1()
         {
             InitializeComponent();
@@ -31,7 +41,7 @@ namespace Labe5
 
             player.OnDotOverlap += (dot) =>
             {
-                ResetDot(dot);
+                ResetDot(dot);  
                 score++;
                 Score_Label.Text = $"Ñ÷¸ò: {score}";
             };
@@ -48,33 +58,13 @@ namespace Labe5
 
         public void ResetDot(Dot dot)
         {
+
             dot.X = random.Next(20, 539);
             dot.Y = random.Next(20, 384);
             dot.radius = random.Next(30, 50);
         }
 
-        private void pbMain_Paint(object sender, PaintEventArgs e)
-        {
-            var g = e.Graphics;
 
-            g.Clear(Color.White);
-
-            updatePlayer();
-
-            foreach (var obj in objects.ToList())
-            {
-                if (obj != player && player.Overlaps(obj, g))
-                {
-                    player.Overlap(obj);
-                    obj.Overlap(player);
-                }
-            }
-            foreach (var obj in objects.ToList())
-            {
-                g.Transform = obj.GetTransform();
-                obj.Render(g);
-            }
-        }
         private void updatePlayer()
         {
             if (marker != null)
@@ -104,8 +94,6 @@ namespace Labe5
         {
             m.X = random.Next(15, 430);
             m.Y = random.Next(15, 240);
-
-
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -129,6 +117,29 @@ namespace Labe5
 
             marker.X = e.X;
             marker.Y = e.Y;
+        }
+
+        private void pbMain_Paint(object sender, PaintEventArgs e)
+        {
+            var g = e.Graphics;
+
+            g.Clear(Color.White);
+
+            updatePlayer();
+
+            foreach (var obj in objects.ToList())
+            {
+                if (obj != player && player.Overlaps(obj, g))
+                {
+                    player.Overlap(obj);
+                    obj.Overlap(player);
+                }
+            }
+            foreach (var obj in objects.ToList())
+            {
+                g.Transform = obj.GetTransform();
+                obj.Render(g);
+            }
         }
     }
 }

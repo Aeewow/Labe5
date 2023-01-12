@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Labe5.Object
 {
-    internal class Dot : BaseObject
+    public class Dot : BaseObject
     {
         public float radius = 50;
         public Action<Dot> onDeath;

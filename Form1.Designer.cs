@@ -55,6 +55,7 @@
             this.pbMain.TabIndex = 3;
             this.pbMain.TabStop = false;
             this.pbMain.Click += new System.EventHandler(this.pbMain_Click);
+            this.pbMain.Paint += new System.Windows.Forms.PaintEventHandler(this.pbMain_Paint);
             this.pbMain.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pbMain_MouseClick);
             // 
             // Score_Label

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Labe5.Object
 {
-    internal class Player : BaseObject
+    public class Player : BaseObject
     {
         public Action<Marker>? OnMarkerOverlap;
         public Action<Dot>? OnDotOverlap;
